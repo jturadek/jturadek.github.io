@@ -4,27 +4,77 @@
 
 var bio = {
 	"name":"Janna Turadek",
-	"role":"Project Manager",
+	"role":"Developer / Project Manager",
+	"profSummaryText":"Developer / Project Manager with 3.5 years of client-facing experience in the Enterprise Content Management field, including understanding of workflow automation and information systems technology.  A self-starter who thrives as liaison between non-technical clients and technical developers, resulting in well-planned and well-executed projects.",
 	"welcomeMsg":"Welcome to my resume!",
 	"contacts": {
 		"mobile": "408-420-9587",
 		"email":"janna.turadek@gmail.com",
 		"location":"Silver Spring, MD"},
-	"skills":["Documentum","Captiva","HTML/CSS","JavaScript"]
+	"skills":["Documentum","Captiva","HTML/CSS","JavaScript","Technical Project Management"]
 };
 
 var work = {
 	"jobs":  [
 		{
 		"employer": "Beach Street Consulting",
-		"title": "Project Manager / Developer",
-		"location": "Maryland",
+		"title": "Developer / Project Manager",
+		"location": "Washington, DC",
 		"dates": "Jan 2011 - Present",
-		"description": ["Managed teams of up to 7 developers to complete projects from requirements gathering to development to QA / UAT testing, to post go-live support.",
-		"Led communication to stakeholders and project team with weekly status reports, technical code / security reviews, issue-identification, and solution walk-throughs.",
-		"Built scalable, customized solutions for clients leveraging EMC Documentum xCP and Captiva platforms.",
-		"Maintained Beach Street Company website.",
-		"Independently developed Beach Street's HR On-Boarding Solution, utilizing Documentum xCP 2.0, which is now EMC Certified."
+		"description": "Developer and Project Manager, with a focus on creating industry-leading solutions leveraging EMC Captiva and Documentum Software suites.  Acquired development proficiency in these core softwares and familiarity with capabilities of other technologies, thus able to excel in both non-technical roles requiring clear communication of technical concepts, and technical roles requiring implementation of non-technical concepts.",
+		"workItems": [
+			{
+			"itemClient": "Broadcom",
+			"itemSkill": "Project Management",
+			"itemDescription": "Managed team of seven to develop a highly-visible Contracts Management Solution.  Lead all client communications including: requirements-gathering with end-users,  integration meetings and code reviews with technical staff, project status and issue escalation with project team, and pointed solution demonstrations to stake-holders including the Broadcom CIO.  Managed project timeline, prioritizing tasks to ensure completion against a strict integration-dependent schedule and setting realistic expectations with client.",
+			"itemURL":"",
+			"itemURLtext":""
+			},
+			{
+			"itemClient": "Los Angeles County",
+			"itemSkill": "Solution Planning and Development",
+			"itemDescription": "Worked with three developers to create a Contracts Management rapid (8 week) prototype based on initial requirements.  Facilitated the review process and refinement of requirements based on the prototype.  Developed and delivered a production ready solution allowing for standardized yet flexible management of 10,000+ contracts per year, with roll-out plans for county-wide adoption.",
+			"itemURL": "http://www.prnewswire.com/news-releases/la-county-implements-award-winning-contract-management-solution-from-beach-street-consulting-and-emc-262382151.html?utm_source=Beach+Street+Community&utm_campaign=816ed471c6-2014_Q3_Newsletter8_1_2014&utm_medium=email&utm_term=0_fa5ac190b8-816ed471c6-205057729",
+			"itemURLtext": "Check out the press release!"
+			},
+			{
+			"itemClient": "Los Angeles County",
+			"itemSkill": "Technical User Testing and Training",
+			"itemDescription": "Lead several on-site workshops with client's solution improvement team in charge of maintaining and updating solution post go-live.  Familiarized team with infrastructure setup, solution code-layout and object model.  Together, we implemented solution updates from Development to Test to Production environments.  Client team now performs about 75% of solution updates without need of a consultant.",
+			"itemURL": "http://beachstreet.net/casestudies/contracts_library_local_government_case_study.html",
+			"itemURLtext": "Check out the LA County Case Study!"
+			},
+			{
+			"itemClient": "Internal",
+			"itemSkill": "Company Website Management",
+			"itemDescription": "Updated and maintained existing company website including: branding enhancements and standardization of styles across website (CSS), redesign of navigation menu and landing page for intuitive user experience (JavaScript), re-write of most viewed content to improve readability.",
+			"itemURL": "http://beachstreet.net",
+			"itemURLtext": "Check out the website!"
+			}
+			]
+			
+		},
+		{
+		"employer": "eLoyalty",
+		"title": "Associate Consultant",
+		"location": "Chicago, IL",
+		"dates": "Sept 2010 - Dec 2010",
+		"description": "Quality Assurance (QA) Tester for company's proprietary voice analytics software, used at call centers to asses customer attitude.",
+		"workItems": [
+			{
+			"itemClient": "Internal: Fraud Detection Department",
+			"itemSkill": "Productive QA Testing",
+			"itemDescription": "Selected to work with a small team to improve functionality and usability of a Beta voice-based fraud detection product.  Became familiar with potential clients' (ex: Bank of America) requirements by interviewing call-center managers.  Suggested and created a mock-up of a more intuitive User Interface that would encourage call-center operators to mark specific types of callers as suspicious, and appropriately re-order operators' script upon such action; this suggestion was accepted and implemented.",
+			"itemURL":"",
+			"itemURLtext":""
+			},
+			{
+			"itemClient": "Internal: Testing Department",
+			"itemSkill": "Analytic QA Testing",
+			"itemDescription": "Conducted positive quality assurance testing on new releases of voice analysts software.  Implemented new department-wide creation and editing process &mdash; applied to UAT Scripts, bug tickets submitted to engineering, and user guides &mdash; ensuring documentation was written, edited, and uniformly formatted by go-live date.  Communicated directly with product developers to ensure clear understanding of issues and expected results.",
+			"itemURL":"",
+			"itemURLtext":""			
+			}
 		]
 		}
 	]
@@ -76,11 +126,20 @@ bio.display = function () {
 	
 	var formattedName = HTMLheaderName.replace("%data%", this.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", this.role);
-	var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", this.welcomeMsg);
+	var formattedProfSummary = HTMLProfSummary.replace("%data%", this.profSummary);
+	var formattedProfSummaryText = HTMLProfSummaryText.replace("%data%", this.profSummaryText);
+	
+	//var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", this.welcomeMsg);
+
+
 	
 	$("#header").append(formattedName);
 	$("#header").append(formattedRole);
-	$("#header").append(formattedWelcomeMsg);
+	//append picture
+	$("#header").append(HTMLbioPic.replace("%data%", "./images/JannaPic.jpg"));
+	$("#header").append(formattedProfSummary);
+	$("#header").append(formattedProfSummaryText);
+	//$("#header").append(formattedWelcomeMsg);
 	
 	//append contacts
     for (contact in this.contacts) {
@@ -89,8 +148,7 @@ bio.display = function () {
         $(".flex-box").append(formattedContact);
     }	
 	
-	//append picture
-	$("#header").append(HTMLbioPic.replace("%data%", "./images/JannaPic.jpg"));
+
 	
 	//append skills
 	if(this.skills.length > 0) {
@@ -121,14 +179,33 @@ work.display = function() {
 		$(".work-entry:last").append(formattedDates);
 	
 		//append description
-		$(".work-entry:last").append(HTMLworkDescriptionStart);
+
+		var formattedWorkDescription = HTMLworkDescription.replace("%data%", job.description);
+		$(".work-entry:last").append(formattedWorkDescription);
 		
-		for (desc in job.description) {
-            var formattedDescription = HTMLworkDescription.replace("%data%",job.description[desc]);
+		//append bullets
+		$(".work-entry:last").append(HTMLworkItemStart);
+		
+		for (item in job.workItems) {
+
+			var formattedWorkSkill = HTMLworkItemSkill.replace("%data%", job.workItems[item].itemSkill);
+			var formattedWorkClient = HTMLworkItemClient.replace("%data%", job.workItems[item].itemClient);
+			var formattedWorkDescription = HTMLworkItemDescription.replace("%data%", job.workItems[item].itemDescription);
 			
-			$("#workDesc").append(formattedDescription);
+			if (job.workItems[item].itemURL.length === 0) {
+				var formattedItem = formattedWorkSkill + formattedWorkClient + formattedWorkDescription;
+			}
+			else {
+				var formattedWorkURL = HTMLworkItemURL.replace("#", job.workItems[item].itemURL);
+				var formattedWorkURL = formattedWorkURL.replace("%data%", job.workItems[item].itemURLtext);
+			
+				var formattedItem = formattedWorkSkill + formattedWorkClient + formattedWorkDescription + formattedWorkURL;
+			}
+			
+			$(".workDesc:last").append(formattedItem);
+			$(".workDesc:last").append(HTMLworkItemClose);
         }
-  }
+	}
 };
 
 projects.display = function() {
@@ -148,7 +225,7 @@ projects.display = function() {
 		for (desc in proj.description) {
             var formattedDescription = HTMLprojectDescription.replace("%data%",proj.description[desc]);
 			
-			$("#projDesc").append(formattedDescription);
+			$(".projDesc:last").append(formattedDescription);
         }
 	
 		if (proj.images.length > 0) {

@@ -25,6 +25,8 @@ var HTMLlocation = "<li class='flex-item'><span class='orange-text'>location</sp
 
 var HTMLbioPic = "<img src='%data%' class='biopic'>";
 var HTMLWelcomeMsg = "<span class='welcome-message'>%data%</span>";
+var HTMLProfSummary = "<h3 class='orange-text'>Professional Summary</h3>";
+var HTMLProfSummaryText = "<h4 class='white-text'>%data%</h4>";
 
 var HTMLskillsStart = "<h3 id='skillsH3'>Skills at a Glance:</h3><ul id='skills' class='flex-box'></ul>";
 var HTMLskills = "<li class='flex-item'><span class='white-text'>%data%</span></li>";
@@ -34,13 +36,19 @@ var HTMLworkEmployer = "<a href='#'>%data%";
 var HTMLworkTitle = " - %data%</a>";
 var HTMLworkDates = "<div class='date-text'>%data%</div>";
 var HTMLworkLocation = "<div class='location-text'>%data%</div>";
-var HTMLworkDescriptionStart = "<br><ul id='workDesc'></ul>";
-var HTMLworkDescription = "<li>%data%</li>";
+var HTMLworkDescription = "<br><p>%data%</p>";
+var HTMLworkItemStart = "<ul class='workDesc'></ul>";
+var HTMLworkItemSkill = "<li><b>%data%</b> - ";
+var HTMLworkItemClient = "<i>%data%</i> - ";
+var HTMLworkItemDescription = "%data%";
+var HTMLworkItemURL = "<a href ='#' class ='workItemURL'>%data%</a>";
+var HTMLworkItemClose = "</li>";
+
 
 var HTMLprojectStart = "<div class='project-entry'></div>";
 var HTMLprojectTitle = "<a href='#'>%data%</a>";
 var HTMLprojectDates = "<div class='date-text'>%data%</div>";
-var HTMLprojectDescriptionStart = "<br><ul id='projDesc'></ul>";
+var HTMLprojectDescriptionStart = "<br><ul class='projDesc'></ul>";
 var HTMLprojectDescription = "<li>%data%</li>";
 var HTMLprojectImage = "<img src='%data%'>";
 
