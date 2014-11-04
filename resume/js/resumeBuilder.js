@@ -11,17 +11,18 @@ var bio = {
 		"mobile": "408-420-9587",
 		"email":"janna.turadek@gmail.com",
 		"location":"Silver Spring, MD"},
-	"skills":["Documentum","Captiva","HTML/CSS","JavaScript","Technical Project Management"]
+	"skills":["EMC Documentum and Captiva","HTML/CSS","Java","JavaScript","Technical Project Management"]
 };
 
 var work = {
 	"jobs":  [
 		{
 		"employer": "Beach Street Consulting",
+		"employerURL": "http://beachstreet.net/",
 		"title": "Developer / Project Manager",
 		"location": "Washington, DC",
 		"dates": "Jan 2011 - Present",
-		"description": "Developer and Project Manager, with a focus on creating industry-leading solutions leveraging EMC Captiva and Documentum Software suites.  Acquired development proficiency in these core softwares and familiarity with capabilities of other technologies, thus able to excel in both non-technical roles requiring clear communication of technical concepts, and technical roles requiring implementation of non-technical concepts.",
+		"description": "Developer and Project Manager, with a focus on creating industry-leading solutions leveraging EMC Captiva and Documentum Software suites.  Able to excel in both non-technical roles requiring clear communication of technical concepts, and technical roles requiring implementation of non-technical concepts.",
 		"workItems": [
 			{
 			"itemClient": "Broadcom",
@@ -56,6 +57,7 @@ var work = {
 		},
 		{
 		"employer": "eLoyalty",
+		"employerURL": "http://www.eloyalty.com/",
 		"title": "Associate Consultant",
 		"location": "Chicago, IL",
 		"dates": "Sept 2010 - Dec 2010",
@@ -85,15 +87,17 @@ var projects = {
 		{
 		"title": "Project Portfolio",
 		"dates": "Oct 2014 - Nov 2014",
-		"description":  ["Created on-line Portfolio using HTML, CSS, and JavaScript as part of Udacity's Front-End Web Developer Nanodegree."],
-		"image":  "./images/197x148.gif",
-		"url":"http://www.beachstreet.net"
+		"descriptionStart": "Created on-line Portfolio using HTML, CSS, and JavaScript as part of Udacity's Front-End Web Developer Nanodegree.",
+		"description":  [],
+		"image":  "./images/portfolio_screenshot.png",
+		"url":"../portfolio/portfolio.html"
 		},
 		{
-		"title": "Title 2",
+		"title": "Super Impressive Techy Project",
 		"dates": "2010 - 2011",
-		"description":  ["Desc 3","Desc 4"],
-		"image":  "./images/197x148.gif",
+		"descriptionStart": "Used in-depth knowledge of every technology ever to save all kittens and babies.",
+		"description":  ["Received prestigious Humanitarian Award from the Save the Cute Things Foundation.","Held educational conferences uniting Cat Ladies with orphans, and rageaholics with kittens in tea-cups."],
+		"image":  "./images/menWithKittens.jpg",
 		"url":""
 		}
 	]
@@ -143,30 +147,33 @@ bio.display = function () {
 	
 	$("#header").append(formattedName);
 	$("#header").append(formattedRole);
+	
 	//append picture
-	$("#header").append(HTMLbioPic.replace("%data%", "./images/JannaPic.jpg"));
-	$("#header").append(formattedProfSummary);
-	$("#header").append(formattedProfSummaryText);
-	//$("#header").append(formattedWelcomeMsg);
-	
-	//append contacts
-    for (contact in this.contacts) {
-        var formattedContact = HTMLcontactGeneric.replace("%data%",this.contacts[contact]);
-        formattedContact = formattedContact.replace("%contact%", contact);
-        $(".flex-box").append(formattedContact);
-    }	
-	
-
+	$("#header").append(HTMLbioCol1);
+	$(".col-md-3:last").append(HTMLbioPic.replace("%data%", "./images/JannaPic.jpg"));
+	//append summary and skills
+	$("#header").append(HTMLbioCol2);
+	$(".col-md-9:last").append(formattedProfSummary);
+	$(".col-md-9:last").append(formattedProfSummaryText);
 	
 	//append skills
 	if(this.skills.length > 0) {
-		$("#header").append(HTMLskillsStart);
+		$(".col-md-9:last").append(HTMLskillsStart);
 		
 		for (skill in this.skills) {
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			$("#skills").append(formattedSkill);
 		}
 	}
+	//$("#header").append(formattedWelcomeMsg);
+	
+	//append contacts
+    for (contact in this.contacts) {
+        var formattedContact = HTMLcontactGeneric.replace("%data%",this.contacts[contact]);
+        formattedContact = formattedContact.replace("%contact%", contact);
+        $("#topContacts").append(formattedContact);
+		$("#footerContacts").append(formattedContact);
+    }	
 };
 
 work.display = function() {
@@ -177,6 +184,7 @@ work.display = function() {
 		
 		//append employer and title
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+		var formattedEmployer = formattedEmployer.replace("#", job.employerURL);
 		var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
 		var formattedEmployerTitle = formattedEmployer + formattedTitle;
 	
@@ -232,7 +240,8 @@ projects.display = function() {
 		$(".project-entry:last").append(formattedDates);
 		
 		//append description
-		$(".project-entry:last").append(HTMLprojectDescriptionStart);
+		var formattedDescriptionStart = HTMLprojectDescriptionStart.replace("%data%", proj.descriptionStart);
+		$(".project-entry:last").append(formattedDescriptionStart);
 		
 		for (desc in proj.description) {
             var formattedDescription = HTMLprojectDescription.replace("%data%",proj.description[desc]);
