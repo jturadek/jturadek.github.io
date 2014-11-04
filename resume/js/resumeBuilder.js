@@ -89,7 +89,7 @@ var projects = {
 		"dates": "Oct 2014 - Nov 2014",
 		"descriptionStart": "Created on-line Portfolio using HTML, CSS, and JavaScript as part of Udacity's Front-End Web Developer Nanodegree.",
 		"description":  [],
-		"image":  "./images/portfolio_screenshot.png",
+		"image":  "./images/portfolio_screenshot.jpg",
 		"url":"../portfolio/portfolio.html"
 		},
 		{
